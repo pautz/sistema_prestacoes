@@ -1,7 +1,7 @@
-# Sistema de Prestação de Pagamentos
-Este repositório contém um sistema de prestação de pagamentos que permite realizar transações de forma eficiente e integrada com MetaMask e WhatsApp.
-
+# Sistema de Pagamentos na Blockchain
+Este repositório contém um sistema de pagamentos que permite realizar transações seguras e eficientes utilizando blockchain, com integração ao MetaMask e WhatsApp.
 edite as configuracao de banco dos arquivos.
+
 instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 <br>
 ![image](https://github.com/user-attachments/assets/7e9ae3f7-0562-42c1-adb5-0b9bfac30b56)
