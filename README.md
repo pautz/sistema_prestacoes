@@ -69,6 +69,7 @@ O projeto está organizado da seguinte maneira:
 │── msg.php
 │── styles.css
 │── scripts.js
+
 3. Banco de Dados
 O sistema utiliza um banco de dados MySQL com tabelas organizadas para garantir a integridade dos dados e otimizar buscas.
 
