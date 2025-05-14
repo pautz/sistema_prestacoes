@@ -1,4 +1,6 @@
-# sistema_prestacoes
+# Sistema de Prestação de Pagamentos
+Este repositório contém um sistema de prestação de pagamentos que permite realizar transações de forma eficiente e integrada com MetaMask e WhatsApp.
+
 edite as configuracao de banco dos arquivos.
 instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 <br>
