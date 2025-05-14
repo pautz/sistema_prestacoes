@@ -97,6 +97,7 @@ O sistema verifica a hash da transação na blockchain.
 Se confirmada, o banco de dados registra o pagamento e atualiza o status.
 
 🔎 Validação da Transação na Blockchain
+
 async function validarTransacao(hash) {
     const web3 = new Web3(new Web3.providers.HttpProvider("https://bsc-dataseed.binance.org/"));
     try {
