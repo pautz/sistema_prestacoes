@@ -1,4 +1,4 @@
-# 💳 Sistema de Solicitação de Pagamentos na Blockchain
+# 💳 Sistema de Pagamentos na Blockchain
 Este repositório contém um sistema de pagamentos descentralizado, permitindo transações rápidas e seguras utilizando blockchain, com integração ao MetaMask e WhatsApp.
 
 🚀 Funcionalidades
