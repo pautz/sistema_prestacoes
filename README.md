@@ -47,12 +47,30 @@ Este sistema permite **monitorar registros de níveis de óleo** e **solicitar p
 - **Solicitações e Confirmação de Pagamento**: MetaMask (Binance Smart Chain)  
 - **Monitoramento**: Gerenciamento de nível de óleo  
 
-## 📂 Estrutura do Projeto
+# 📌 Sistema de Gerenciamento de Níveis de Óleo e Solicitação de Pagamentos  
+
+## ✨ Introdução  
+Este sistema permite **monitorar registros de níveis de óleo** e **solicitar pagamentos via MetaMask**, garantindo que transações sejam verificadas na **blockchain** antes de serem registradas no banco de dados.  
+
+---
+
+## 🚀 Tecnologias Utilizadas  
+- **Backend**: PHP e MySQL  
+- **Frontend**: JavaScript, HTML, CSS  
+- **Autenticação**: Sessões PHP  
+- **Solicitações e Confirmação de Pagamento**: MetaMask (Binance Smart Chain)  
+- **Monitoramento**: Gerenciamento de nível de óleo  
+
+---
+
+## 📂 Estrutura do Projeto  
 /site/ │── db.php │── index.php │── add_oil_level.php │── delete_oil_level.php │── get_oil_levels.php │── get_respostas.php │── get_ids_by_cv.php │── registrar_edicao.php │── update_boat_id.php │── update_oil_level.php │── page.php → (contém a função valida_transacao) │── meusequipamentos.php │── msg.php │── styles.css │── scripts.js
 
 
-## 🛢 Banco de Dados
-### 🗂 Estrutura da tabela `paymentsprestacao`
+---
+
+## 🛢 Banco de Dados  
+### 🗂 Estrutura da tabela `paymentsprestacao`  
 ```sql
 CREATE TABLE paymentsprestacao (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -63,14 +81,13 @@ CREATE TABLE paymentsprestacao (
     valorpayment DECIMAL(10,6),
     payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 🔧 Backend
 ✨ valida_transacao (dentro de page.php)
 Consulta a blockchain para verificar se a transação foi confirmada.
 
 Verifica receipt.status para garantir que a transação foi finalizada antes de registrar.
 
-Registra hash no banco de dados e altera paymentstatus após confirmação.
+Registra a hash no banco de dados e altera paymentstatus após confirmação.
 
 🎨 Frontend
 Solicitação de pagamento via MetaMask
@@ -92,12 +109,12 @@ O usuário inicia um pagamento via MetaMask.
 
 A transação é enviada para a Binance Smart Chain.
 
-O sistema verifica a hash da transação na blockchain.
+O sistema verifica a hash da transação na blockchain usando validarTransacao().
 
 Se confirmada, o banco de dados registra o pagamento e atualiza o status.
 
 🔎 Validação da Transação na Blockchain
-
+javascript
 async function validarTransacao(hash) {
     const web3 = new Web3(new Web3.providers.HttpProvider("https://bsc-dataseed.binance.org/"));
     try {
@@ -108,3 +125,33 @@ async function validarTransacao(hash) {
         return null;
     }
 }
+📝 Registro da Transação Após Confirmação
+php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['hashTransacao'])) {
+    $hashTransacao = $_POST['hashTransacao'];
+    $payment = 1; // Confirmado
+    $valorPayment = $dadosCertificado['oil_level'] ?? 0;
+
+    $queryCheck = "SELECT COUNT(*) FROM paymentsprestacao WHERE hashTransacao = ?";
+    $stmtCheck = $cx->prepare($queryCheck);
+    $stmtCheck->bind_param("s", $hashTransacao);
+    $stmtCheck->execute();
+    $stmtCheck->bind_result($count);
+    $stmtCheck->fetch();
+    $stmtCheck->close();
+
+    if ($count > 0) {
+        echo "Erro: Pagamento já registrado.";
+        exit;
+    }
+
+    $queryInsert = "INSERT INTO paymentsprestacao (id, hashTransacao, cv, eq_user, payment, valorpayment) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmtInsert = $cx->prepare($queryInsert);
+    $stmtInsert->bind_param("isssid", $id, $hashTransacao, $cv, $usuario, $payment, $valorPayment);
+
+    if ($stmtInsert->execute()) {
+        echo "Pagamento confirmado e registrado!";
+    } else {
+        echo "Erro ao registrar pagamento.";
+    }
+    $stmtInsert->close();
