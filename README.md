@@ -15,8 +15,7 @@ altere as configurações de banco dos códigos, e instale https://github.com/t0
 # 📌 Sistema de Gerenciamento de Níveis de Óleo e Solicitação de Pagamentos  
 
 ## ✨ Introdução  
-Este sistema permite **monitorar registros de níveis de óleo** e **solicitar pagamentos via MetaMask**, garantindo que transações sejam verificadas na **blockchain** antes de serem registradas no banco de dados.  
-
+Este sistema foi desenvolvido para monitorar registros de níveis de óleo e gerenciar solicitações e confirmações de pagamento, garantindo que transações via MetaMask sejam verificadas na blockchain antes de serem registradas no banco de dados. Ele permite funcionalidades como registro, edição, exclusão e visualização de dados, além de integração com MetaMask para envio de pagamentos e comunicação via WhatsApp.
 ---
 
 ## 🚀 Tecnologias Utilizadas  
