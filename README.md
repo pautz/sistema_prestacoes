@@ -1,6 +1,25 @@
-# Sistema de Pagamentos na Blockchain
-Este repositório contém um sistema de pagamentos que permite realizar transações seguras e eficientes utilizando blockchain, com integração ao MetaMask e WhatsApp.
-edite as configuracao de banco dos arquivos.
+# 💳 Sistema de Pagamentos na Blockchain
+Este repositório contém um sistema de pagamentos descentralizado, permitindo transações rápidas e seguras utilizando blockchain, com integração ao MetaMask e WhatsApp.
+
+🚀 Funcionalidades
+Pagamentos via ID da Carteira: Em vez de memorizar longos endereços de carteira, utilize um ID único vinculado à carteira do destinatário.
+
+Integração com MetaMask: Conecte sua carteira digital para autorizar pagamentos instantaneamente.
+
+Envio de Pagamentos pelo WhatsApp: Gere um QR Code para compartilhar e confirmar transações.
+
+Registro na Blockchain: Cada pagamento é registrado, garantindo segurança, transparência e rastreabilidade.
+
+🛠 Como Usar
+Conecte sua carteira MetaMask ao sistema.
+
+Insira o ID da carteira do destinatário, evitando a necessidade de copiar endereços complexos.
+
+Confirme a transação e aguarde a validação na blockchain.
+
+Compartilhe o pagamento via WhatsApp para comunicação rápida.
+
+Este sistema oferece uma solução moderna e eficiente para pagamentos digitais, tornando as transações mais simples, seguras e acessíveis.
 
 instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 <br>
