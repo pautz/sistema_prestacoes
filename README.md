@@ -35,18 +35,6 @@ instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 <br>
 ![image](https://github.com/user-attachments/assets/d305976c-3954-46e3-99de-1d3b715d22a2)
 
-# Sistema de Gerenciamento de Níveis de Óleo e Solicitação de Pagamentos
-
-## 📌 Introdução
-Este sistema permite **monitorar registros de níveis de óleo** e **solicitar pagamentos via MetaMask**, garantindo que transações sejam verificadas na **blockchain** antes de serem registradas no banco de dados.
-
-## 🚀 Tecnologias Utilizadas
-- **Backend**: PHP e MySQL  
-- **Frontend**: JavaScript, HTML, CSS  
-- **Autenticação**: Sessões PHP  
-- **Solicitações e Confirmação de Pagamento**: MetaMask (Binance Smart Chain)  
-- **Monitoramento**: Gerenciamento de nível de óleo  
-
 # 📌 Sistema de Gerenciamento de Níveis de Óleo e Solicitação de Pagamentos  
 
 ## ✨ Introdução  
