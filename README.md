@@ -10,5 +10,8 @@ instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 <br>
 ![image](https://github.com/user-attachments/assets/08a221c8-11b5-47d1-be18-8131d7ea6b65)
 <br>
+![image](https://github.com/user-attachments/assets/10458bc7-3436-4dfe-a2da-1d6ada5a235c)
+<br>
 ![image](https://github.com/user-attachments/assets/7709bc31-d72c-4337-ab64-ba702937d570)
-
+<br>
+![Uploading image.png…]()
