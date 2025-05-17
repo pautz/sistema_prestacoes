@@ -71,7 +71,7 @@ $valorPrestacao = number_format($dadosCertificado['oil_level'] ?? 0, 2, '.', '')
 $dataPagamento = htmlspecialchars(!empty($dadosCertificado['data_pagamento']) ? (new DateTime($dadosCertificado['data_pagamento']))->format('d/m/Y') : 'Não disponível');
 $usuario = htmlspecialchars($dadosCertificado['eq_user'] ?? 'Não disponível');
 $cv = htmlspecialchars($dadosCertificado['cv'] ?? 'Não disponível');
-$mensagem = "Olá! Gostaria de solicitar o pagamento da prestação. Usuário: $usuario ID Prestação: $id CV: $cv Valor: R$ " . number_format($ethValue * $bnbToBrlRate, 6, ',', '.') . " Data: $dataPagamento";
+$mensagem = "Olá! Gostaria de solicitar o pagamento da prestação. Usuário: $usuario ID Prestação: $id CV: $cv Valor: R$ " . number_format($bnbValue * $bnbToBrlRate, 6, ',', '.') . " Data: $dataPagamento";
 $dadosWallet = $resultWallet->fetch_assoc();
 
 // Inclua a mensagem no link do WhatsApp
@@ -112,6 +112,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['hashTransacao'])) {
         echo "Erro ao registrar pagamento: " . $stmtInsert->error;
     }
     $stmtInsert->close();
+    // Atualizar status de pagamento na tabela respostas
+$queryUpdateStatus = "UPDATE respostas SET status_pagamento = 'Pago' WHERE id = ?";
+$stmtUpdateStatus = $cx->prepare($queryUpdateStatus);
+$stmtUpdateStatus->bind_param("i", $id);
+
+if ($stmtUpdateStatus->execute()) {
+    echo "Status de pagamento atualizado!";
+} else {
+    echo "Erro ao atualizar status: " . $stmtUpdateStatus->error;
+}
+
+$stmtUpdateStatus->close();
+
 }
 
 $cx->close();
