@@ -1,6 +1,6 @@
 altere as configurações de banco dos códigos, e instale https://github.com/t0k4rt/phpqrcode/tree/master em site
 
-mude localhost para seu domain
+mude localhost.com para seu domain
 <br>
 ![image](https://github.com/user-attachments/assets/7e9ae3f7-0562-42c1-adb5-0b9bfac30b56)
 <br>
